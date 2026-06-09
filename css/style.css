@@ -1011,7 +1011,7 @@ button {
 /* 縦線：画面左から33vw、下から上へゴールド（background-position方式でスマホ対応） */
 .vacancy-sweep-v {
   position: absolute;
-  left: 33vw;
+  left: 28vw;
   top: 0;
   bottom: 0;
   width: 3px;
