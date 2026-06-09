@@ -549,6 +549,29 @@ button {
   box-shadow: 0 0 6px 1px rgba(45, 45, 45, 0.25);
 }
 
+/* 横線（元のゴールド、左 → 右） */
+.hero-sweep-h {
+  transform: translateY(-50%) translateX(-150vw);
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(196, 168, 71, 0.3) 30%,
+    rgba(255, 230, 100, 0.95) 50%,
+    rgba(196, 168, 71, 0.3) 70%,
+    transparent 100%
+  );
+  box-shadow: 0 0 10px 2px rgba(255, 220, 80, 0.5);
+  height: 3px;
+  animation: hero-sweep-h 4s ease-in-out infinite;
+}
+
+@keyframes hero-sweep-h {
+  0%   { transform: translateY(-50%) translateX(-150vw); opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translateY(-50%) translateX(150vw);  opacity: 0; }
+}
+
 /* 右上 → 左下（屋根の左斜面と同角度） */
 .hero-sweep-a {
   transform: translateY(-50%) rotate(-35deg) translateX(200vw);
