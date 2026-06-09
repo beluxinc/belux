@@ -40,9 +40,9 @@
   --color-cream-dark:  #F0E8D4;   /* クリーム（濃） */
   --color-border:      #E0D5BC;   /* ボーダー */
 
-  /* フォント（やわらかい丸ゴシック体） */
-  --font-main: 'M PLUS Rounded 1c', 'Hiragino Maru Gothic ProN', 'Hiragino Sans',
-               'BIZ UDPGothic', 'Yu Gothic', 'Meiryo', sans-serif;
+  /* フォント（游明朝・明朝体） */
+  --font-main: 'Yu Mincho', 'YuMincho', '游明朝', 'Hiragino Mincho ProN',
+               'Noto Serif JP', serif;
 
   /* レイアウト */
   --max-width:      1100px;
