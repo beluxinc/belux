@@ -435,9 +435,13 @@
   if (!section || !link) return;
 
   function setSweepTop() {
-    var sectionRect = section.getBoundingClientRect();
-    var linkRect    = link.getBoundingClientRect();
-    var topPx = linkRect.top + linkRect.height / 2 - sectionRect.top;
+    // offsetTop はCSSのtransformに影響されないため animate-in のズレが出ない
+    var topPx = link.offsetHeight / 2;
+    var el = link;
+    while (el && el !== section) {
+      topPx += el.offsetTop;
+      el = el.offsetParent;
+    }
     section.style.setProperty('--vacancy-sweep-top', topPx + 'px');
   }
 
