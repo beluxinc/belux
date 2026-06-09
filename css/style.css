@@ -11,14 +11,15 @@
    07. 会社について
    08. 選ばれる理由
    09. 対応工事
-   10. 施工実績
-   11. お問い合わせ（フォーム・マップ）
-   12. フッター
-   13. フローティングCTA（スマホ用）
-   14. ライトボックス
-   15. スクロールアニメーション
-   16. レスポンシブ — タブレット（768px以上）
-   17. レスポンシブ — PC（1024px以上）
+   10. 空き家相談窓口
+   11. 施工実績
+   12. お問い合わせ（フォーム・マップ）
+   13. フッター
+   14. フローティングCTA（スマホ用）
+   15. ライトボックス
+   16. スクロールアニメーション
+   17. レスポンシブ — タブレット（768px以上）
+   18. レスポンシブ — PC（1024px以上）
 ============================================================ */
 
 
@@ -839,7 +840,119 @@ button {
 
 
 /* ============================================================
-   10. 施工実績
+   10. 空き家相談窓口
+============================================================ */
+.vacancy-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.vacancy-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.vacancy-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.vacancy-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: var(--color-gold-light);
+  border-radius: 50%;
+  color: var(--color-gold-dark);
+  flex-shrink: 0;
+}
+
+.vacancy-card-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.vacancy-card-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.5;
+}
+
+.vacancy-card-subname {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+}
+
+.vacancy-card-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+  flex: 1;
+}
+
+.vacancy-card-tel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.vacancy-card-tel a {
+  color: var(--color-dark);
+  transition: color var(--transition);
+}
+
+.vacancy-card-tel a:hover,
+.vacancy-card-tel a:focus-visible {
+  color: var(--color-gold-dark);
+}
+
+.vacancy-card-tel svg {
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.vacancy-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.6em 1.5em;
+  background: transparent;
+  color: var(--color-gold-dark);
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: background var(--transition), color var(--transition);
+  text-decoration: none;
+  margin-top: 0.25rem;
+}
+
+.vacancy-card-link:hover,
+.vacancy-card-link:focus-visible {
+  background: var(--color-gold);
+  color: var(--color-white);
+}
+
+
+/* ============================================================
+   11. 施工実績
 ============================================================ */
 .works-grid {
   display: grid;
@@ -1438,6 +1551,11 @@ button {
 
   /* 対応工事：3列 */
   .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* 空き家相談窓口：3列 */
+  .vacancy-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
