@@ -924,14 +924,15 @@ button {
   overflow: hidden;
 }
 
-/* sweepはvacancy-card内に配置 → カードのstacking contextを共有しz-indexが有効 */
-.vacancy-card {
-  --vacancy-sweep-top: 50%;
+/* vacancy-cardのanimate-inはtransformなし（transformがstacking contextを作るとz-index比較が壊れるため） */
+.vacancy .animate-in,
+.vacancy .animate-in.is-visible {
+  transform: none;
 }
 
 .vacancy-sweep {
   position: absolute;
-  top: var(--vacancy-sweep-top);
+  top: var(--vacancy-sweep-top, 50%);
   left: 50%;
   width: 100vw;
   height: 3px;

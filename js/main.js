@@ -430,15 +430,14 @@
    8. 空き家相談 sweep線の縦位置を「詳しくはこちら」ボタン中央に合わせる
 ============================================================ */
 (function initVacancySweepPosition() {
-  var card  = document.querySelector('.vacancy-card');
-  var link  = document.querySelector('.vacancy-card-link');
-  if (!card || !link) return;
+  var section = document.querySelector('.vacancy');
+  var link    = document.querySelector('.vacancy-card-link');
+  if (!section || !link) return;
 
   function setSweepTop() {
-    // offsetTop はCSSのtransformに影響されない
-    // link中央のY座標 - card上端のY座標 = カード内での相対位置
-    var topPx = (link.offsetTop + link.offsetHeight / 2) - card.offsetTop;
-    card.style.setProperty('--vacancy-sweep-top', topPx + 'px');
+    // link.offsetParent === section（.vacancyがposition:relative）なので直接計算可
+    var topPx = link.offsetTop + link.offsetHeight / 2;
+    section.style.setProperty('--vacancy-sweep-top', topPx + 'px');
   }
 
   setSweepTop();
