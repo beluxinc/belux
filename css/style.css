@@ -802,24 +802,43 @@ button {
 }
 
 .service-card {
-  background:
+  --sp-x: 0%;
+  --sp-y: 0%;
+  background-image:
     linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.48)),
-    url('../看板.jpg') center / cover fixed;
+    url('../看板.jpg');
+  background-position: 0 0, var(--sp-x) var(--sp-y);
+  background-size: 100% 100%, 200% 600%;
+  background-repeat: no-repeat;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius);
   padding: 1.75rem 0.75rem 1.5rem;
   text-align: center;
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
 .service-card:hover {
-  background:
+  background-image:
     linear-gradient(rgba(196, 168, 71, 0.85), rgba(196, 168, 71, 0.85)),
-    url('../看板.jpg') center / cover fixed;
+    url('../看板.jpg');
   border-color: var(--color-gold);
   transform: translateY(-4px);
   box-shadow: 0 8px 28px rgba(196, 168, 71, 0.5);
 }
+
+/* モバイル 2列×6行 */
+.service-card:nth-child(1)  { --sp-x: 0%;   --sp-y: 0%;   }
+.service-card:nth-child(2)  { --sp-x: 100%; --sp-y: 0%;   }
+.service-card:nth-child(3)  { --sp-x: 0%;   --sp-y: 20%;  }
+.service-card:nth-child(4)  { --sp-x: 100%; --sp-y: 20%;  }
+.service-card:nth-child(5)  { --sp-x: 0%;   --sp-y: 40%;  }
+.service-card:nth-child(6)  { --sp-x: 100%; --sp-y: 40%;  }
+.service-card:nth-child(7)  { --sp-x: 0%;   --sp-y: 60%;  }
+.service-card:nth-child(8)  { --sp-x: 100%; --sp-y: 60%;  }
+.service-card:nth-child(9)  { --sp-x: 0%;   --sp-y: 80%;  }
+.service-card:nth-child(10) { --sp-x: 100%; --sp-y: 80%;  }
+.service-card:nth-child(11) { --sp-x: 0%;   --sp-y: 100%; }
+.service-card:nth-child(12) { --sp-x: 100%; --sp-y: 100%; }
 
 .service-icon {
   display: flex;
@@ -1570,6 +1589,21 @@ button {
     grid-template-columns: repeat(3, 1fr);
   }
 
+  /* タブレット 3列×4行 */
+  .service-card { background-size: 100% 100%, 300% 400%; }
+  .service-card:nth-child(1)  { --sp-x: 0%;   --sp-y: 0%;      }
+  .service-card:nth-child(2)  { --sp-x: 50%;  --sp-y: 0%;      }
+  .service-card:nth-child(3)  { --sp-x: 100%; --sp-y: 0%;      }
+  .service-card:nth-child(4)  { --sp-x: 0%;   --sp-y: 33.33%;  }
+  .service-card:nth-child(5)  { --sp-x: 50%;  --sp-y: 33.33%;  }
+  .service-card:nth-child(6)  { --sp-x: 100%; --sp-y: 33.33%;  }
+  .service-card:nth-child(7)  { --sp-x: 0%;   --sp-y: 66.67%;  }
+  .service-card:nth-child(8)  { --sp-x: 50%;  --sp-y: 66.67%;  }
+  .service-card:nth-child(9)  { --sp-x: 100%; --sp-y: 66.67%;  }
+  .service-card:nth-child(10) { --sp-x: 0%;   --sp-y: 100%;    }
+  .service-card:nth-child(11) { --sp-x: 50%;  --sp-y: 100%;    }
+  .service-card:nth-child(12) { --sp-x: 100%; --sp-y: 100%;    }
+
   /* 空き家相談窓口：3列 */
   .vacancy-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -1633,6 +1667,21 @@ button {
   .services-grid {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  /* PC 4列×3行 */
+  .service-card { background-size: 100% 100%, 400% 300%; }
+  .service-card:nth-child(1)  { --sp-x: 0%;      --sp-y: 0%;   }
+  .service-card:nth-child(2)  { --sp-x: 33.33%;  --sp-y: 0%;   }
+  .service-card:nth-child(3)  { --sp-x: 66.67%;  --sp-y: 0%;   }
+  .service-card:nth-child(4)  { --sp-x: 100%;    --sp-y: 0%;   }
+  .service-card:nth-child(5)  { --sp-x: 0%;      --sp-y: 50%;  }
+  .service-card:nth-child(6)  { --sp-x: 33.33%;  --sp-y: 50%;  }
+  .service-card:nth-child(7)  { --sp-x: 66.67%;  --sp-y: 50%;  }
+  .service-card:nth-child(8)  { --sp-x: 100%;    --sp-y: 50%;  }
+  .service-card:nth-child(9)  { --sp-x: 0%;      --sp-y: 100%; }
+  .service-card:nth-child(10) { --sp-x: 33.33%;  --sp-y: 100%; }
+  .service-card:nth-child(11) { --sp-x: 66.67%;  --sp-y: 100%; }
+  .service-card:nth-child(12) { --sp-x: 100%;    --sp-y: 100%; }
 
   /* 施工実績：4列 */
   .works-grid {
