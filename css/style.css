@@ -578,12 +578,6 @@ button {
   animation: hero-sweep-a 4s ease-in-out infinite;
 }
 
-/* 左上 → 右下（対称）→ 中央で交差 */
-.hero-sweep-b {
-  transform: translateY(-50%) rotate(35deg) translateX(-200vw);
-  animation: hero-sweep-b 4s ease-in-out infinite;
-}
-
 @keyframes hero-sweep-a {
   0%   { transform: translateY(-50%) rotate(-35deg) translateX(200vw);  opacity: 0; }
   8%   { opacity: 1; }
@@ -591,12 +585,6 @@ button {
   100% { transform: translateY(-50%) rotate(-35deg) translateX(-200vw); opacity: 0; }
 }
 
-@keyframes hero-sweep-b {
-  0%   { transform: translateY(-50%) rotate(35deg) translateX(-200vw);  opacity: 0; }
-  8%   { opacity: 1; }
-  92%  { opacity: 1; }
-  100% { transform: translateY(-50%) rotate(35deg) translateX(200vw);   opacity: 0; }
-}
 
 .hero-logo {
   width: 100%;
