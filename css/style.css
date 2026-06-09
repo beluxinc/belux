@@ -1032,8 +1032,8 @@ button {
   background-size: 100% 300%;
   background-position: 0% 0%;
   opacity: 0;
-  animation: vacancy-sweep-v 7s ease-in-out infinite;
-  animation-delay: -1.2s;
+  animation: vacancy-sweep-v 4s ease-in-out infinite;
+  animation-delay: -1.4s;
 }
 
 @keyframes vacancy-sweep-v {
