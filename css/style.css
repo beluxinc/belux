@@ -522,9 +522,45 @@ button {
 }
 
 /* ロゴマーク（可能な限り大きく・レスポンシブ対応） */
-.hero-logo {
+.hero-logo-wrap {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
   width: min(480px, 82vw);
+}
+
+.hero-logo-wrap::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -80%;
+  transform: translateY(-50%);
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(180, 150, 80, 0.5) 30%,
+    rgba(255, 220, 120, 0.95) 50%,
+    rgba(180, 150, 80, 0.5) 70%,
+    transparent 100%
+  );
+  border-radius: 1px;
+  animation: logo-sweep 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+@keyframes logo-sweep {
+  0%   { left: -80%; opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+.hero-logo {
+  width: 100%;
   height: auto;
+  display: block;
 }
 
 .hero-title {
