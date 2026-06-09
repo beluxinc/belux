@@ -926,7 +926,7 @@ button {
 
 .vacancy-sweep {
   position: absolute;
-  top: 50%;
+  top: var(--vacancy-sweep-top, 50%);
   left: 50%;
   width: 100vw;
   height: 3px;

@@ -424,3 +424,23 @@
   });
 
 })();
+
+
+/* ============================================================
+   8. 空き家相談 sweep線の縦位置を「詳しくはこちら」ボタン中央に合わせる
+============================================================ */
+(function initVacancySweepPosition() {
+  var section = document.querySelector('.vacancy');
+  var link    = document.querySelector('.vacancy-card-link');
+  if (!section || !link) return;
+
+  function setSweepTop() {
+    var sectionRect = section.getBoundingClientRect();
+    var linkRect    = link.getBoundingClientRect();
+    var topPx = linkRect.top + linkRect.height / 2 - sectionRect.top;
+    section.style.setProperty('--vacancy-sweep-top', topPx + 'px');
+  }
+
+  setSweepTop();
+  window.addEventListener('resize', setSweepTop);
+})();
