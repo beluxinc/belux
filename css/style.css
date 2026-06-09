@@ -798,44 +798,52 @@ button {
 }
 
 .service-card {
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
+  background: var(--color-dark);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: var(--radius);
-  padding: 1.25rem 0.75rem;
+  padding: 1.75rem 0.75rem 1.5rem;
   text-align: center;
-  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 .service-card:hover {
+  background: var(--color-gold);
   border-color: var(--color-gold);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 16px rgba(196, 168, 71, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(196, 168, 71, 0.45);
 }
 
-/* 丸いゴールドアイコン */
 .service-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  background: var(--color-gold);
+  width: 52px;
+  height: 52px;
+  color: var(--color-gold);
+  margin: 0 auto 0.9rem;
+  transition: color var(--transition);
+}
+
+.service-card:hover .service-icon {
   color: var(--color-white);
-  border-radius: 50%;
-  margin: 0 auto 0.7rem;
 }
 
 .service-icon svg {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
 }
 
 .service-card h3 {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-dark);
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.4;
+  transition: color var(--transition);
+}
+
+.service-card:hover h3 {
+  color: var(--color-white);
 }
 
 
