@@ -923,6 +923,8 @@ button {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
+  max-width: 560px;
+  margin-inline: auto;
 }
 
 .vacancy-card {
@@ -1646,9 +1648,9 @@ button {
   .service-card:nth-child(11) { --sp-x: 50%;  --sp-y: 100%;    }
   .service-card:nth-child(12) { --sp-x: 100%; --sp-y: 100%;    }
 
-  /* 空き家相談窓口：3列 */
+  /* 空き家相談窓口：1枚中央寄せ */
   .vacancy-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
   }
 
   /* 施工実績：2列 */
