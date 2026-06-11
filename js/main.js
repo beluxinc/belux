@@ -52,7 +52,8 @@
   if (!sns) return;
 
   function updateSns() {
-    if (window.scrollY > window.innerHeight * 0.5) {
+    var threshold = 300;
+    if (window.scrollY > threshold) {
       sns.classList.add('is-visible');
     } else {
       sns.classList.remove('is-visible');
