@@ -344,6 +344,7 @@ button {
 .header-logo img {
   height: 44px;
   width: auto;
+  border-radius: 4px;
 }
 
 /* LIXILロゴは正方形なので少し小さく */
@@ -762,12 +763,13 @@ button {
 .about-info-row dt {
   width: 7em;
   flex-shrink: 0;
-  white-space: nowrap;
   background: var(--color-cream-dark);
   padding: 0.6em 1em;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--color-text-light);
+  text-align: justify;
+  text-align-last: justify;
 }
 
 .about-info-row dd {
@@ -1034,6 +1036,36 @@ button {
   8%   { opacity: 1; }
   92%  { opacity: 1; }
   100% { background-position: 0% 140%;  opacity: 0; }
+}
+
+@keyframes neon-pulse-instagram {
+  0%, 100% {
+    box-shadow:
+      0 0 4px rgba(225, 48, 108, 0.5),
+      0 0 10px rgba(225, 48, 108, 0.3),
+      0 0 20px rgba(188, 24, 136, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 6px rgba(225, 48, 108, 0.7),
+      0 0 16px rgba(225, 48, 108, 0.4),
+      0 0 32px rgba(188, 24, 136, 0.3);
+  }
+}
+
+@keyframes neon-pulse-line {
+  0%, 100% {
+    box-shadow:
+      0 0 4px rgba(6, 199, 85, 0.5),
+      0 0 10px rgba(6, 199, 85, 0.3),
+      0 0 20px rgba(6, 199, 85, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 6px rgba(6, 199, 85, 0.7),
+      0 0 16px rgba(6, 199, 85, 0.4),
+      0 0 32px rgba(6, 199, 85, 0.3);
+  }
 }
 
 .vacancy-grid {
@@ -1320,6 +1352,9 @@ button {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--color-text-light);
+  text-align: justify;
+  text-align-last: justify;
+  text-justify: inter-character;
 }
 
 .contact-detail dd {
@@ -1514,8 +1549,10 @@ button {
 .footer-social-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5em;
   padding: 0.65em 1.6em;
+  min-width: 9rem;
   border-radius: var(--radius);
   font-size: 0.95rem;
   font-weight: 700;
@@ -1529,17 +1566,26 @@ button {
   transform: translateY(-2px);
 }
 
+.footer-social-btn svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
 .footer-social-instagram {
   background: linear-gradient(45deg, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888);
   color: #fff;
+  animation: neon-pulse-instagram 2s ease-in-out infinite;
 }
 
 .footer-social-line {
   background: #06C755;
   color: #fff;
+  animation: neon-pulse-line 2s ease-in-out infinite;
 }
 
 .footer-copy {
+  position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1.2rem 0;
   text-align: center;
@@ -1548,6 +1594,15 @@ button {
 .footer-copy p {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.45);
+}
+
+.footer-site-id {
+  position: absolute;
+  bottom: 1.2rem;
+  right: 2rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.05em;
 }
 
 
@@ -1605,7 +1660,7 @@ button {
 .floating-sns {
   position: fixed;
   right: 16px;
-  bottom: 90px;
+  bottom: 120px;
   z-index: 950;
   display: flex;
   flex-direction: column;
@@ -1640,11 +1695,13 @@ button {
   background-color: #dc2743;
   background: -webkit-linear-gradient(45deg, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888);
   background: linear-gradient(45deg, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888);
+  animation: neon-pulse-instagram 2s ease-in-out infinite;
 }
 
 .floating-sns-line {
   background-color: #06C755;
   background: #06C755;
+  animation: neon-pulse-line 2s ease-in-out infinite;
 }
 
 .floating-sns-btn svg {
@@ -1657,7 +1714,7 @@ button {
 /* タブレット以上はフローティングCTAがないので bottom を調整 */
 @media (min-width: 768px) {
   .floating-sns {
-    bottom: 28px;
+    bottom: 56px;
     right: 20px;
   }
 
