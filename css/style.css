@@ -274,9 +274,10 @@ button {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.97);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  /* 背景をほぼ不透明にしてbackdrop-filterに頼らない
+     （固定ヘッダー+backdrop-filterは高速スクロール時にChrome/Androidで
+     画面全体が一瞬白くなる描画バグを起こすため使用しない） */
+  background: rgba(255, 255, 255, 0.99);
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
   height: var(--header-height);

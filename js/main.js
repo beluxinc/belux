@@ -146,11 +146,19 @@
       if (!target) return;
       e.preventDefault();
       revealImmediately(target);
-      var headerHeight = parseInt(
-        getComputedStyle(document.documentElement).getPropertyValue('--header-height') || '70', 10
-      );
-      var targetY = target.getBoundingClientRect().top + window.scrollY - headerHeight;
-      window.scrollTo({ top: targetY, behavior: 'smooth' });
+
+      // ハンバーガーメニューを閉じる描画が確定してからスクロールを開始する。
+      // 閉じる処理と大きなスクロールが同じタイミングで走ると、Android Chromeで
+      // 固定表示のメニュー文字だけ描画されず消えたまま残る不具合があるため。
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          var headerHeight = parseInt(
+            getComputedStyle(document.documentElement).getPropertyValue('--header-height') || '70', 10
+          );
+          var targetY = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+        });
+      });
     });
   });
 })();
