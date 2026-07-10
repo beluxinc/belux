@@ -120,6 +120,20 @@
    CSS scroll-behavior: smooth のフォールバックも兼ねる
 ============================================================ */
 (function initSmoothScroll() {
+  // ジャンプ先の.animate-in要素を、フェードインを待たず即座に表示する
+  // （スクロール到着後に白飛びして見えるのを防ぐ）
+  function revealImmediately(container) {
+    var els = container.querySelectorAll('.animate-in');
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (el.classList.contains('is-visible')) continue;
+      el.style.transitionDuration = '0s';
+      el.classList.add('is-visible');
+      void el.offsetHeight; // reflowを強制してtransitionDurationを反映
+      el.style.transitionDuration = '';
+    }
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       var targetId = this.getAttribute('href');
@@ -131,6 +145,7 @@
       var target = document.querySelector(targetId);
       if (!target) return;
       e.preventDefault();
+      revealImmediately(target);
       var headerHeight = parseInt(
         getComputedStyle(document.documentElement).getPropertyValue('--header-height') || '70', 10
       );
