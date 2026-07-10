@@ -290,9 +290,16 @@ button {
   box-shadow: var(--shadow-md);
 }
 
-/* スクロール後：ナビリンクを白に */
+/* スクロール後：ナビリンクを白に（PC版の濃色ヘッダー用） */
 .header.scrolled .nav-link {
   color: rgba(255, 255, 255, 0.85);
+}
+
+/* スマホ用ドロワーは開いている間ずっと背景が白なので、
+   スクロールしてヘッダーが.scrolledになっても文字は黒のまま維持する
+   （白背景に白文字が重なって見えなくなるのを防ぐ） */
+.header.scrolled .header-nav.nav-open .nav-link {
+  color: var(--color-text);
 }
 
 .header.scrolled .nav-link:hover,
